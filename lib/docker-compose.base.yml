@@ -3,7 +3,7 @@ services:
 
     sharelatex:
         restart: always
-        image: "${IMAGE}"
+        image: sharelatex/sharelatex:latest-with-review
         container_name: sharelatex
         volumes:
             - "${OVERLEAF_DATA_PATH}:${OVERLEAF_IN_CONTAINER_DATA_PATH}"
