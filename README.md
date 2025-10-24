@@ -1,5 +1,5 @@
 # Overleaf Toolkit with Review
-This repository forked from Overleaf Toolkit and reference grandduke1106's add review version
+This repository forked from Overleaf Toolkit and reference grandduke1106's add [review and comment](https://github.com/GrandDuke1106/sharelatex/tree/main) version
 
 ## How to start 
 1. clone this repository
