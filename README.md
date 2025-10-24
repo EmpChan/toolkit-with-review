@@ -1,37 +1,21 @@
-# Overleaf Toolkit
+# Overleaf Toolkit with Review
+This repository forked from Overleaf Toolkit and reference grandduke1106's add review version
 
-This repository contains the Overleaf Toolkit, the standard tools for running a local
-instance of [Overleaf](https://overleaf.com). This toolkit will help you to set up and administer both Overleaf Community Edition (free to use, and community supported), and Overleaf Server Pro (commercial, with professional support).
-
-The [Developer wiki](https://github.com/overleaf/overleaf/wiki) contains further documentation on releases, features and other configuration elements.
-
-
-## Getting Started
-
-Clone this repository locally:
-
-``` sh
-git clone https://github.com/overleaf/toolkit.git ./overleaf-toolkit
+## How to start 
+1. clone this repository
+2. build sharelatex image like this
+```sh
+docker build . -t sharelatex/sharelatex:latest-with-review 
 ```
+  - if u change the image name then update lib/docker-compose.base.yml sharelatex-image
+```docker
+services:
+    sharelatex:
+        restart: always
+        image: sharelatex_image_name:tag <- update this part
+        container_name: sharelatex
+        ...
+```
+3. run `bin/up -d` and checking the app
 
-Then follow the [Quick Start Guide](./doc/quick-start-guide.md).
-
-
-## Documentation
-
-See [Documentation Index](./doc/README.md)
-
-
-## Contributing
-
-See the [CONTRIBUTING](https://github.com/overleaf/overleaf/blob/main/CONTRIBUTING.md) file.
-
-
-## Getting Help
-
-Users of the free Community Edition should [open an issue on github](https://github.com/overleaf/toolkit/issues). 
-
-Users of Server Pro should contact `support@overleaf.com` for assistance.
-
-In both cases, it is a good idea to include the output of the `bin/doctor` script in your message.
-
+more information check here : [Overleaf Toolkit](https://github.com/overleaf/toolkit)
