@@ -1,4 +1,4 @@
-FROM sharelatex/sharelatex:latest
+FROM sharelatex/sharelatex:5.5.4
 
 WORKDIR /overleaf
 
@@ -7,5 +7,10 @@ RUN git clone https://github.com/yu-i-i/overleaf-cep.git overleaf-cep && \
     rm -rf overleaf-cep && \
     sed -i "/moduleImportSequence:/a 'track-changes'," services/web/config/settings.defaults.js && \
     sed -i 's/trackChangesAvailable: false/trackChangesAvailable: true/g' services/web/app/src/Features/Project/ProjectEditorHandler.js
+
+RUN tlmgr option repository https://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet && \
+    tlmgr update --self --all && \
+    tlmgr install scheme-full && \
+    tlmgr path add
 
 ENTRYPOINT ["/sbin/my_init"]
